@@ -23,7 +23,7 @@ fi
 # 4. Dəyişənləri çıxar
 magic_number=$(readelf -h "$file_name" | grep "Magic" | sed 's/^[ \t]*Magic:[ \t]*//')
 class=$(readelf -h "$file_name" | grep "Class:" | awk '{print $2}')
-byte_order=$(readelf -h "$file_name" | grep "Data:" | cut -d ':' -f2 | sed 's/^[ \t]*//')
+byte_order=$(readelf -h "$file_name" | grep "Data:" | cut -d ',' -f2 | sed 's/^[ \t]*//')
 entry_point_address=$(readelf -h "$file_name" | grep "Entry point address" | awk '{print $NF}')
 
 # 5. messages.sh-ı source et
